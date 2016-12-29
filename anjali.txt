@@ -1,0 +1,3716 @@
+//Sanu the researcher
+//Researcher.java
+import java.util.*;
+class Researcher
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int array[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            array[i]=sc.nextInt();
+        }
+        int c=0,c1=0;
+        for(int i=0;i<n;i++)
+        {
+            if(array[i]!=0)
+            c++;
+            else
+            c=0;
+            if(c1<=c)
+            c1=c;
+        }
+        System.out.println(c1);
+    }
+}
+
+//Password.java 
+import java.util.*; 
+class Password
+{    
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);  
+        int n=sc.nextInt();
+        String pass[]=new String[n];
+        int c=0;
+        for(int i=0;i<n;i++)
+        {
+            pass[i]=sc.next();
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(palindrome(pass[i]).equals(pass[j]))
+                {
+                    System.out.println(pass[i].length()+" "+pass[i].charAt(pass[i].length()/2));
+                    c=1;
+                    break;
+                }
+            }
+            if(c==1)
+            break;
+        }
+    }
+    public static String palindrome(String s)
+    {
+        String rev="";
+        for(int j=s.length()-1;j>=0;j--)
+        {
+            rev+=s.charAt(j);
+        }
+        return rev;
+    }
+}
+
+
+//Find.java 
+import java.util.*; 
+class Find
+{     
+    public static void main(String args[])    
+    {         
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int ppercabin=sc.nextInt();
+        String person[]=new String[n];
+        int cabin=0;
+        boolean flag=false;
+        for(int i=0;i<n;i++)
+        {
+            person[i]=sc.next();
+        }
+        String key=sc.next();
+        for(int i=0;i<n;i++)
+        {
+            if(person[i].equals(key))
+            {
+                cabin=(i+ppercabin)/ppercabin;
+                flag=true;
+            }
+        }
+        if(flag)
+        System.out.println(key+" is in Cabin "+cabin);
+        else
+            System.out.println(key+" is not in the list");
+    }
+}
+
+
+//League.java 
+import java.util.*; 
+class League
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        int n=sc.nextInt();
+        sc.nextLine();
+        int win=0,draw=0,defeat=0,score=0,conceded=0,totalPoint=0;
+        for(int i=0;i<n;i++)
+        {
+            String match=sc.nextLine();
+            String matcharr[]=match.split(" ");
+            String team1=matcharr[0];
+            String goal1=matcharr[1];
+            String team2=matcharr[2];
+            String goal2=matcharr[3];
+            if(team1.equals("ManchesterUnited"))
+            {
+                score+=Integer.parseInt(goal1);
+                conceded+=Integer.parseInt(goal2);
+                if(Integer.parseInt(goal1)>Integer.parseInt(goal2))
+                win++;
+                if(Integer.parseInt(goal1)==Integer.parseInt(goal2))
+                draw++;
+                if(Integer.parseInt(goal1)<Integer.parseInt(goal2))
+                defeat++;
+            }
+            else if(team2.equals("ManchesterUnited"))
+            {
+                score+=Integer.parseInt(goal2);
+                conceded+=Integer.parseInt(goal1);
+                if(Integer.parseInt(goal1)<Integer.parseInt(goal2))
+                win++;
+                if(Integer.parseInt(goal1)==Integer.parseInt(goal2))
+                draw++;
+                if(Integer.parseInt(goal1)>Integer.parseInt(goal2))
+                defeat++;
+            }
+        }
+        totalPoint=win*3+draw;
+        System.out.println("Wins "+win);
+        System.out.println("Draws "+draw);
+        System.out.println("Defeats "+defeat);
+        System.out.println("Goals Scored "+score);
+        System.out.println("Goals Conceded "+conceded);
+        System.out.println("Total Points "+totalPoint);
+    }
+}
+
+
+//Ritu.java 
+import java.util.*; 
+class Ritu 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);  
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int n=sc.nextInt();
+            int arr[]=new int [n];
+            for(int j=0;j<n;j++)
+            {
+                arr[j]=sc.nextInt();
+            }
+            int p=sc.nextInt();
+            int d=arr[p-1];
+            Arrays.sort(arr);
+            for(int j=0;j<n;j++)
+            {
+                if(d==arr[j])
+                System.out.println(j+1);
+            }
+        }
+    }
+}
+
+
+//Suman.java 
+import java.util.*;
+import java.math.*;
+class Suman
+{    
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);   
+        int t=sc.nextInt();
+        BigDecimal a,b,res;
+        a=new BigDecimal(103993);
+        b=new BigDecimal(33102);
+        for(int i=1;i<=t;i++)
+        {
+            int k=sc.nextInt();
+            res=a.divide(b,k,RoundingMode.DOWN);
+            System.out.println(res);
+        }
+    }
+}
+
+
+//Search.java 
+import java.util.*; 
+class Search 
+{     
+    static int n;
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        n=sc.nextInt();
+        char a[][]=new char[n][n];
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                a[i][j]=sc.next().charAt(0);
+            }
+        }
+        String key=sc.next();
+        int c=0;
+         for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(a[i][j]==key.charAt(0))
+                c=c+count(i,j,key.substring(1),a);
+            }
+        }
+        System.out.println(c);
+    }
+    public static int count(int i,int j,String key,char[][] a)
+    {
+        int c=0;
+        if(key.length()==0)
+        return 1;
+        if(i+1!=n && j+1!=n && a[i+1][j+1]==key.charAt(0))
+        c=c+count(i+1,j+1,key.substring(1),a);
+        if(i-1!=-1 && j+1!=n && a[i-1][j+1]==key.charAt(0))
+        c=c+count(i-1,j+1,key.substring(1),a);
+        if(i+1!=n && j-1!=-1 && a[i+1][j-1]==key.charAt(0))
+        c=c+count(i+1,j-1,key.substring(1),a);
+        if(i-1!=-1 && j-1!=-1 && a[i-1][j-1]==key.charAt(0))
+        c=c+count(i-1,j-1,key.substring(1),a);
+        return c;
+    }
+}
+
+
+//FillMatrix.java 
+import java.util.*; 
+class FillMatrix 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);   
+        int n=sc.nextInt();
+        String a[][]=new String[n][n];
+        String a1=sc.next();
+        String a2=sc.next();
+        String a3=sc.next();
+        int k=n-1;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(i==j || (i+j)==(n-1))
+                a[i][j]=a3;
+                else 
+                a[i][j]=a2;
+            }
+        }
+        for(int i=0;i<n/2;i++)
+        {
+            for(int j=i+1;j<n-1-i;j++)
+            {
+                a[i][j]=a1;
+                a[n-1-i][j]=a1;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(j==0)
+               System.out.print(a[i][j]); 
+               else
+               System.out.print(" "+a[i][j]); 
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//FillMatrix.java 
+import java.util.*; 
+class FillMatrix 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);   
+        int n=sc.nextInt();
+        String a[][]=new String[n][n];
+        String a1=sc.next();
+        String a2=sc.next();
+        String a3=sc.next();
+        int k=n-1;
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(i==j || (i+j)==(n-1))
+                a[i][j]=a3;
+                else 
+                a[i][j]=a2;
+            }
+        }
+        for(int i=0;i<n/2;i++)
+        {
+            for(int j=i+1;j<n-1-i;j++)
+            {
+                a[i][j]=a1;
+                a[n-1-i][j]=a1;
+            }
+        }
+        for(int i=0;i<n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                if(j==0)
+               System.out.print(a[i][j]); 
+               else
+               System.out.print(" "+a[i][j]); 
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+//Matrix.java 
+import java.util.*; 
+class Matrix 
+{     
+    public static void main(String args[])     
+    {        
+        Scanner sc=new Scanner(System.in);  
+        int n=sc.nextInt();         
+        int a[][]=new int[n][n]; 
+        if(n>3 && n<10)
+        {
+        for(int i=0;i<n;i++)         
+        {             
+            for(int j=0;j<n;j++)             
+            {                 
+                a[i][j]=sc.nextInt();             
+            } 
+        }
+        int ar[]=new int[n];
+        int k=0;
+        for(int i=1;i<n-1;i++)
+        {
+            for(int j=1;j<n-1;j++)
+            {
+                ar[k]=a[i][j];
+                k++;
+            }
+        }
+        Arrays.sort(ar);
+        int l=0;
+        for(int i=1;i<n-1;i++)
+        {
+            for(int j=1;j<n-1;j++)
+            {
+                a[i][j]=ar[l];
+                l++;
+            }
+        }
+        for(int i=0;i<n;i++)         
+        {             
+            for(int j=0;j<n;j++)             
+            {   
+                if(j==0)
+                System.out.print(a[i][j]);  
+                else
+                System.out.print(" "+a[i][j]);  
+            } 
+            if(i<n-1)
+            System.out.println();
+        }
+        }
+        else
+        System.out.println("Invalid Input");
+    }
+}
+
+
+//Piglatin.java 
+import java.util.*; 
+class Piglatin
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);    
+        String str=sc.nextLine();
+        String str1[]=str.split("\\s");
+        boolean flag=false;
+        String sub="";
+        for(int i=0;i<str1.length;i++)
+        {
+            flag=false;
+            for(int j=0;j<str1[i].length();j++)
+            {
+            char c=str1[i].charAt(j);
+            if(c == 'a' || c == 'e' || c == 'i' || c=='o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c=='U')
+            {
+                sub=str1[i].substring(j,str1[i].length())+str1[i].substring(0,j)+"ay";
+                flag=true;
+                break;
+            }
+            }
+            if(flag)
+            System.out.print(sub+" ");
+            else
+            System.out.print(str1[i]+" ");
+        }
+    }
+}
+
+
+//QOD
+//Ankit.java
+import java.util.*;
+class Ankit
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int n=sc.nextInt();
+            int f[]=new int[1000001];
+            int c=0,max=0;
+            for(int j=0;j<n;j++)
+            {
+                int s=sc.nextInt();
+                int r=sc.nextInt();
+                if(r==1)
+                {
+                    if(f[s]<1)
+                    {
+                        c++;
+                        if(c>max)
+                        max=c;
+                    }
+                    f[s]++;
+                }
+                else
+                c=0;
+            }
+            System.out.println(max);
+        }
+    }
+}
+
+//*********************   Assignment 15***********************************//
+//Water.java 
+import java.util.Scanner; 
+class Water 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);  
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int a=sc.nextInt();
+            int b=sc.nextInt();
+            int c=sc.nextInt();
+            if(steps(a,b,c)<steps(b,a,c))             
+            {                 
+                System.out.println(steps(a,b,c));            
+            }             
+            else             
+            {                 
+                System.out.println(steps(b,a,c));           
+            }
+        }
+    }
+    public static boolean check(int a,int b,int c)     
+    { 		         
+        if(c>a && c>b)
+        {
+            return false;   
+        }
+        if(c%gcd(a,b)==0) 
+        {
+            return true;    
+        }
+        return false;    
+    }     
+    public static int gcd(int a,int b)     
+    { 	           
+        if(a%b==0)             
+        return b;         
+        else             
+        return gcd(b,a%b);   
+    }     
+    public static int steps(int a,int b,int c)     
+    { 		         
+        if(check(a,b,c))         
+        { 		             
+            int A=0;             
+            int B=0;             
+            int s=0;             
+            while(A!=c &&B!=c)             
+            { 			                 
+                if(A==0)                 
+                {                     
+                    A=a;                     
+                    s++;            
+                }                 
+                else                 
+                {                     
+                    if(B==b)                     
+                    {                          
+                        B=0;                         
+                        s++;                    
+                    }                     
+                    else                     
+                    {                         
+                        if(B+A>b)                         
+                        {                            
+                            A=B+A-b;           
+                            B=b;                             
+                            s++;                         
+                        }                         
+                        else                         
+                        {                             
+                            B=B+A;                             
+                            A=0;                             
+                            s++;                         
+                        }                     
+                    }                 
+                }             
+            }             
+            return s;      
+        }         
+        else 
+        return -1;     
+    }
+}
+
+
+
+//Key.java 
+import java.util.Scanner; 
+class Key
+{     
+    public static void main(String args[])     
+    {        
+        Scanner sc=new Scanner(System.in);   
+        int n=sc.nextInt();
+        sc.nextLine();
+        String code="";
+        for(int i=0;i<n;i++)
+        {
+            String str=sc.nextLine();
+            String s[]=str.split(" ");
+            if(s[0].contains("add"))
+            {
+                code+=s[1];
+            }
+            else if(s[0].contains("remove"))
+            {
+                code=code.replace(s[1],"");
+            }
+            else if(s[0].contains("repeat"))
+            {
+                int x=Integer.parseInt(s[1]);
+                int l=code.length();
+                String t="";
+                for(int j=0;j<l;j++)
+                {
+                    char c=code.charAt(j);
+                    if(c==s[2].charAt(0))
+                    {
+                        for(int k=0;k<x;k++)
+                        {
+                            t+=s[2].charAt(0);
+                        }
+                    }
+                    else
+                    t+=c;
+                }
+                code=t;
+            }
+            else if(s[0].contains("rprint"))
+            {
+                code=new StringBuffer(code).reverse().toString();
+                System.out.println(code);
+            }
+            else if(s[0].contains("print"))
+            {
+            System.out.println(code);
+            }
+        }
+    }
+}
+
+//Blackjack.java 
+import java.util.*; 
+class Blackjack 
+{     
+    public static void main(String args[])  
+    {         
+        Scanner s=new Scanner(System.in);         
+        ArrayList<String> player=new ArrayList<String>();   
+        ArrayList<String> dealer=new ArrayList<String>();   
+        int d=0,p=0;           
+        for(int i=0;i<2;i++)                
+        {                         
+            String a=s.next();                  
+            player.add(a);           
+        }                
+        for(int i=0;i<2;i++)              
+        {                        
+            String a1=s.next();                  
+            dealer.add(a1);            
+        }                 
+        String action=s.next();             
+        action=action.toLowerCase();               
+        while(action.equals("hit"))            
+        {                        
+            String a=s.next();                 
+            player.add(a);                      
+            String a1=s.next();                 
+            dealer.add(a1);                       
+            action=s.next();                     
+            action=action.toLowerCase();          
+        }              
+        ListIterator l1=player.listIterator();            
+        ListIterator l2=dealer.listIterator();          
+        boolean b1=true;              
+        boolean b2=true;               
+        while(l1.hasNext())               
+        {                       
+            String str=l1.next().toString();       
+            str=str.toLowerCase();                   
+            if(str.equals("k")||str.equals("q")||str.equals("j"))                   
+            p+=10;                
+            else if(str.equals("a"))                    
+            {                        
+                p+=11;                     
+                b1=false;                 
+            }                      
+            else                   
+            p+=Integer.valueOf(str);                
+            if(p>21 && b1==false)              
+            {                         
+                p-=10;                     
+                b1=true;                 
+            }                
+        }                
+        while(l2.hasNext())            
+        {                        
+            String str=l2.next().toString();    
+            str=str.toLowerCase();                    
+            if(str.equals("k")||str.equals("q")||str.equals("j"))                
+            d+=10;                   
+            else if(str.equals("a"))                  
+            {                          
+                d+=11;                            
+                b2=false;                        
+            }                    
+            else                     
+            {                              
+                d+=Integer.valueOf(str);                     
+                if(d>21 && b2==false)                     
+                {                                      
+                    d-=10;                                    
+                    b2=true;                               
+                }                   
+            }              
+        }               
+        if(d>21 && p>21)           
+        {                      
+            System.out.print("Tied");          
+        }             
+        else if(p>21)            
+        {                       
+            System.out.print("Dealer");         
+        }             
+        else if(d>21)            
+        {                      
+            System.out.print("Player");       
+        }              
+        else if(p>d)             
+        {                    
+            System.out.print("Player");        
+        }                
+        else if(d>p)               
+        {                     
+            System.out.print("Dealer");     
+        }               
+        else             
+        {                    
+            System.out.print("Tied");      
+        }  
+    }
+}
+
+//Robot.java 
+import java.util.Scanner; 
+class Robot
+{     
+    public static void main(String args[])    
+    {         
+        Scanner sc=new Scanner(System.in);         
+        int t=sc.nextInt();                
+        for(int i=1;i<=t;i++)         
+        {                        
+            int n=sc.nextInt();                  
+            int x=0,y=0;                              
+            String face="x+";                      
+            while(n-->0)             
+            {                             
+                String str=sc.next();                    
+                if(str.equals("Forward"))                 
+                {                                         
+                    if(face.equals("x+"))                     
+                    {          
+                        x=x+5;                              
+                    }                     
+                    else if(face.equals("y+"))  
+                    {                          
+                        y=y+5;                      
+                    }                     
+                    else if(face.equals("x-"))    
+                    {                   
+                        x=x-5;       
+                    }                     
+                    else if(face.equals("y-"))    
+                    {        
+                        y=y-5;        
+                    }                            
+                }                 
+                else if(str.equals("Backward"))    
+                {                                      
+                    if(face.equals("x+"))       
+                    {                        
+                        x=x-2;              
+                    }                     
+                    else if(face.equals("y+"))  
+                    {                           
+                        y=y-2;                  
+                    }                     
+                    else if(face.equals("x-"))
+                    {                         
+                        x=x+2;                 
+                    }                     
+                    else if(face.equals("y-"))  
+                    {                           
+                        y=y+2;                     
+                    }                       
+                }                                
+                else if(str.equals("Left"))                 
+                {                                         
+                    if(face.equals("x+"))                   
+                    {               
+                        face="y+";         
+                    }                     
+                    else if(face.equals("y+"))  
+                    {                           
+                        face="x-";              
+                    }                     
+                    else if(face.equals("x-"))    
+                    {                             
+                        face="y-";                
+                    }                     
+                    else if(face.equals("y-"))   
+                    {                       
+                        face="x+";          
+                    }                        
+                }                 
+                else if(str.equals("Right"))      
+                {                                  
+                    if(face.equals("x+"))          
+                    {                              
+                        face="y-";                 
+                    }                     
+                    else if(face.equals("y-"))
+                    {                         
+                        face="x-";            
+                    }                     
+                    else if(face.equals("x-")) 
+                    {                          
+                        face="y+";             
+                    }                     
+                    else if(face.equals("y+"))      
+                    {                               
+                        face="x+";                  
+                    }                         
+                }                             
+            }                                       
+            double x1 = Math.pow((0-x),2);        
+            double x2 = Math.pow((0-y),2);        
+            double d = Math.sqrt(x1+x2);
+            System.out.printf("%.2f meters\n",d);  
+        }         
+    }
+}
+
+import java.util.Scanner;  
+class Game
+{            
+    public static void main(String[] args)  
+    {                    
+        Scanner sc=new Scanner(System.in);        
+        int n=sc.nextInt();                     
+        for(int j=0;j<n;j++) 
+        {                             
+            int move[]={0,0,0,0};           
+            int index=0;                            
+            double dis=0;                     
+            int t=sc.nextInt();                
+            while(t>0)          
+            {                    
+                String str=sc.next();     
+                if(str.equalsIgnoreCase("forward"))    
+                {                                     
+                    move[index]+=5;              
+                }                   
+                else if(str.equalsIgnoreCase("backward"))   
+                {                                          
+                    move[index]-=2;                    
+                }                             
+                else if(str.equalsIgnoreCase("right"))  
+                {                                       
+                    index=(index+1)%move.length;        
+                }                               
+                else if(str.equalsIgnoreCase("left"))  
+                {                                      
+                    if(index!=0)                       
+                    index=(index-1);                   
+                    else                               
+                    index=move.length-1;               
+                }                         
+                t--;            
+            }                      
+            dis=Math.sqrt(Math.pow(Math.abs(move[2]-move[0]),2) 
+            +Math.pow(Math.abs(move[3]-move[1]),2));   
+            System.out.printf("%.2f meters\n",dis);    
+        }               
+    }    
+}
+
+
+
+//Ignite.java 
+import java.util.Scanner; 
+class Ignite 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);  
+        String s=sc.nextLine();
+        String s1=new StringBuffer(s).reverse().toString();
+        System.out.println(s1);
+    }
+}
+
+
+//Pokemon.java 
+import java.util.Scanner; 
+class Pokemon 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner s=new Scanner(System.in);         
+        int n=s.nextInt();          
+        String[] name=new String[n];             
+        int[] t=new int[n];                 
+        int maxp=0,maxcp=0;               
+        String namecp="",traineecp="";           
+        for(int i=0;i<n;i++)                 
+        {                        
+            name[i]=s.next();                
+            t[i]=s.nextInt();                   
+            maxp=maxp>t[i]?maxp:t[i];                 
+            String[] pn=new String[t[i]];                
+            int[] cp=new int[t[i]];                   
+            for(int j=0;j<t[i];j++)                     
+            {                            
+                pn[j]=s.next();                       
+                cp[j]=s.nextInt();                         
+                if(cp[j]>maxcp)                             
+                {                                    
+                    maxcp=cp[j];                            
+                    namecp=pn[j];                           
+                    traineecp=name[i];                     
+                }                   
+            }              
+        }                 
+        System.out.println(traineecp+" is having Max CP "+namecp+" with "+maxcp+"CP");            
+        int count=0;            
+        for(int i=0;i<n;i++)               
+        {                       
+            if(maxp==t[i])                 
+            {                               
+                count++;                            
+                if(count==1)                              
+                System.out.print(name[i]);                      
+                else                                
+                System.out.print(", "+name[i]);           
+            }              
+        }                
+        System.out.println(" is having Max number of pokemons");  
+    }
+}
+
+
+
+
+//Frequency.java 
+import java.util.Scanner; 
+class Frequency
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        s.trim();
+        char c=s.charAt(s.length()-1);
+        int count=0;
+        if(c=='.'||c=='?')
+        {
+            s=s.toLowerCase();
+            s=s.replaceAll("\\W"," ");
+            String s1[]=s.split("\\s+");
+            for(int i=0;i<s1.length;i++)
+            {
+                count=1;
+                if(s1[i]!="AAAAA")
+                {
+                for(int j=i+1;j<s1.length;j++)
+                {
+                    if(s1[i].equals(s1[j]))
+                    {
+                        count++;
+                        s1[j]="AAAAA";
+                    }
+                }
+                System.out.println(s1[i]+" "+count);
+                }
+            }
+        }
+        else
+        System.out.println("Invalid Input");
+    }
+}
+
+
+
+//Kaprekar.java
+import java.util.Scanner;
+class Kaprekar
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int num=sc.nextInt();
+        int sq=num*num;
+        String sq1=Integer.toString(sq);
+        if(sq<=9)
+        sq1="0"+sq1;
+        int len=sq1.length();
+        int mid=len/2;
+        String left=sq1.substring(0,mid);
+        String right=sq1.substring(mid);
+        int sum=Integer.parseInt(left)+Integer.parseInt(right);
+        if(num==sum)
+        System.out.println(num+" is a kaprekar number");
+        else
+        System.out.println(num+" is not a kaprekar number");
+    }
+}
+
+
+
+//Emrip.java 
+import java.util.Scanner; 
+class Emrip 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        int m=sc.nextInt();
+        int n=sc.nextInt();
+        int r;
+        if(m<n)
+        {
+            for(int i=m;i<=n;i++)
+            {
+                r=reverse(i);
+                if(isprime(r)&&isprime(i))
+                System.out.print(i+" ");
+            }
+        }
+        else
+        System.out.println("Invalid input");
+    }
+    public static boolean isprime(int a)
+    {
+        int count=0;
+        for(int i=1;i<=a;i++)
+        {
+            if(a%i==0)
+            count++;
+        }
+        if(count==2)
+        return true;
+        else
+        return false;
+    }
+    public static int reverse(int b)
+    {
+        int rev=0;
+        for(int i=b;i>0;i=i/10)
+        {
+            rev=rev*10+(i%10);
+        }
+        return rev;
+    }
+}
+
+
+//Palindromic.java
+import java.util.Scanner;
+class Palindromic
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        String str1=str;
+        str1=str1.toLowerCase();
+        str1=str1.replaceAll("\\W","");
+        char c=str.charAt(str.length()-1);
+        if(c=='.'||c=='?'||c=='!')
+        {
+            String str2=new StringBuffer(str1).reverse().toString();
+            if(str1.equals(str2))
+            System.out.println(str.substring(0,str.length()-1)+" is a palindromic sentence");
+            else
+            System.out.println(str.substring(0,str.length()-1)+" is not a palindromic sentence");
+        }
+        else
+        System.out.println("Invalid input");
+    }
+}
+
+
+
+*********************************week 15&****************************
+
+
+import java.util.*;
+class Anthakshari
+{
+    public static void main(String args[])
+    {
+        Scanner in=new Scanner(System.in);
+        int n=in.nextInt();
+        String s1[]=new String[n];
+        for(int i=0;i<n;i++)
+        {
+           s1[i]=in.next();
+        }
+        boolean flag=true;
+        String ans="";
+        for(int i=0;i<n;i++)
+        {
+            String c=s1[i].charAt(0)+"";
+            flag=true;
+            for(int j=0;j<n;j++)
+            {
+                if(s1[j].endsWith(c))
+                flag=false;
+            }
+            if(flag)
+            {
+                ans=s1[i];
+                s1[i]="";
+                break;
+            }
+        }
+        String res=ans+"\n";
+        for(int i=0;i<n;i++)
+        {
+            String last=ans.charAt(ans.length()-1)+"";
+            for(int j=0;j<n;j++)
+            {
+                if(s1[j].startsWith(last))
+                {
+                    res+=s1[j]+"\n";
+                    ans=s1[j];
+                    s1[j]="";
+                    break;
+                }
+            }
+        }
+        System.out.println(res);
+    }
+}
+
+
+
+
+**************************Week16assignment*********************************
+//HailStoneSequence.java 
+import java.util.*; 
+class Sequence 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        int n=sc.nextInt();
+        ArrayList <Integer> arr=new ArrayList();
+        arr.add(n);
+        int temp=n;
+        while(temp!=1)
+        {
+            if(temp%2==0)
+            {
+                temp=temp/2;
+                arr.add(temp);
+            }
+            else if(temp%2!=0)
+            {
+                temp=(temp*3)+1;
+                arr.add(temp);
+            }
+            else
+            {
+                arr.add(temp);
+            }
+        }
+        System.out.println(arr.size());
+        for(int i=0;i<arr.size();i++)
+        System.out.println(arr.get(i));
+    }
+}
+
+
+//Batch.java 
+import java.util.*; 
+class Batch 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        String b1=sc.next();
+        int n1=sc.nextInt();
+        String bn1[]=new String[n1];
+        for(int i=0;i<n1;i++)
+        {
+            bn1[i]=sc.next();
+        }
+        String b2=sc.next();
+        int n2=sc.nextInt();
+        String bn2[]=new String[n2];
+        for(int i=0;i<n2;i++)
+        {
+            bn2[i]=sc.next();
+        }
+        for(int i=0;i<n1;i++)
+        {
+            for(int j=0;j<n2;j++)
+            {
+                if(bn1[i].equals(bn2[j]))
+                {
+                    System.out.println(bn1[i]);
+                }
+            }
+        }
+    }
+}
+
+
+//Fun.java 
+import java.util.*; 
+class Fun 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        int n=str.length();
+        String s="";
+        ArrayList <String> palin=new ArrayList();
+        int count=0;
+        for(int i=3;i<=n;i++)
+        {
+            for(int j=0;j<n;j++)
+            {
+                int k=i+j-1;
+                if(k>=n)
+                continue;
+                s=str.substring(j,i+j);
+                if(s.equals(new StringBuffer(s).reverse().toString()))
+                {
+                    palin.add(s);
+                    count++;
+                }
+            }
+        }
+        if(count>0)
+        {
+            for(int k=0;k<palin.size();k++)
+            {
+                System.out.println(palin.get(k));
+            }
+        }
+        else
+        {
+            for(int k=0;k<str.length();k++)
+            {
+                char b=str.charAt(k);
+                int x=str.charAt(k);
+                char c=(char)(x+1);
+                if(b=='a'||b=='e'||b=='i'||b=='o'||b=='u'||b=='A'||b=='E'||b=='I'||b=='O'||b=='U')
+                {
+                    str=str.replace(b,c);
+                }
+            }
+            System.out.println(str);
+        }
+    }
+}
+
+
+//Dolly.java 
+import java.util.*; 
+class Dolly 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        String batch=sc.nextLine();
+        String hrs=sc.nextLine();
+        String h[]=hrs.split(" ");
+        int c1=0,c2=0;
+        if(h.length!=40)
+        System.out.println("Invalid Input");
+        else
+        {
+            for(int i=0;i<h.length;i++)
+            {
+                if(h[i].charAt(0)=='L')
+                c1++;
+                if(h[i].charAt(0)=='Z')
+                c2++;
+            }
+            int l=(c1/5);
+            int z=(c2/5);
+            System.out.println(batch);
+            System.out.println("Monday: "+l+"L "+z+"Z");
+            System.out.println("Wednesday: "+l+"L "+z+"Z");
+            System.out.println("Tuesday: "+l+"L "+z+"Z");
+            //System.out.println("Wednesday: "+l+"L "+z+"Z");
+            System.out.println("Friday: "+l+"L "+z+"Z");
+            System.out.println("Thursday: "+l+"L "+z+"Z");
+            //System.out.println("Friday: "+l+"L "+z+"Z");
+        }
+    }
+}
+
+
+//Haider.java 
+import java.util.*; 
+class Haider 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        String str=sc.nextLine();
+        char a[]=str.toCharArray();
+        a[0]=Character.toUpperCase(a[0]);
+        String ans="";
+        for(int i=0;i<a.length;i++)
+        {
+            if(Character.isWhitespace(a[i]))
+            {
+                a[i+1]=Character.toUpperCase(a[i+1]);
+            }
+            ans+=a[i];
+        }
+        System.out.println(ans);
+    }
+}
+
+//SETeam.java 
+import java.util.*; 
+class SETeam 
+{     
+   public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);         
+        String s=sc.nextLine();         
+        int num=sc.nextInt();         
+        String s1[]=s.split("\\s+");         
+        int m=s1.length;         
+        int n1[]=new int[m];         
+        int i=0,j=0,count=0;         
+        for(i=0;i<m;i++)         
+        {             
+            n1[i]=Integer.valueOf(s1[i]);      
+        }         
+        for(i=0;i<m;i++)         
+        {             
+            for(j=i+1;j<m;j++)             
+            {                 
+                if(n1[i]+n1[j]==num)                 
+                {                     
+                    n1[i]=0;                     
+                    n1[j]=0;                     
+                    count++;                 
+                }            
+            }        
+        }         
+        System.out.println(count);     
+    }
+}
+
+
+8.//Monk.java 
+import java.util.*; 
+class Monk 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in); 
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int n=sc.nextInt();
+            String a[]=new String[n];
+            for(int j=0;j<n;j++)
+            {
+                a[j]=sc.nextLine();
+            }
+            Arrays.sort(a);
+            for(int j=1;j<n;j++)
+            {
+                if((j==0)||(!(a[j].equals(a[j-1]))))
+                {
+                    System.out.println(a[j]);
+                }
+            }
+        }
+    }
+}
+#10
+import java.util.*; 
+class test
+{    
+    public static void main(String args[]) 
+    {         
+        Scanner in = new Scanner(System.in);  
+        int n = in.nextInt();    
+        int noOfChoc[] = new int[n];     
+        for(int k = 0;k < n;k++)
+        {            
+            noOfChoc[k] = 0; 
+        }      
+        int m = in.nextInt();  
+        while(m>0)
+        {         
+            int l = in.nextInt();
+            int r = in.nextInt(); 
+            for(int j = l;j <= r;j++)
+            {           
+                noOfChoc[j]++;
+            }       
+            m--;     
+        }        
+        int q = in.nextInt(); 
+        int count = 0;   
+        for(int i = 1;i <= q;i++)
+        {               
+            count = 0;      
+            int x = in.nextInt();
+            for(int k = 0;k < n;k++)
+            {            
+                if(noOfChoc[k]>=x)
+                count++;       
+            }       
+            System.out.println(count); 
+        }   
+    }      
+}       
+
+*******************QOD*******************
+
+//MakingBook.java
+import java.util.*;
+class MakingBook
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int counter=1;
+        while(sc.hasNext())
+        {
+            String s=sc.nextLine();             
+            if(s.equals("0"))             
+            {                 
+                return;            
+            }             
+            else             
+            {                 
+                String s1[]=s.split("\\s+");                 
+                String temp="";                 
+                String ans="Case "+counter+": ";        
+                for(int j=Integer.valueOf(s1[0]);j<=Integer.valueOf(s1[1]);j++)                
+                {                     
+                    temp+=j;                    
+                }                 
+                for(int k=0;k<=9;k++)                 
+                {                     
+                    ans+=k+":"+countDigit(temp,k)+" ";  
+                }                 
+                System.out.println(ans.trim());            
+            }             
+        counter++;      
+        }
+    }
+    public static int countDigit(String s,int d)     
+    {         
+        int c=0;         
+        String d1=d+"";         
+        for(int i=0;i<s.length();i++)         
+        {             
+            if((s.charAt(i)+"").equals(d1))             
+            c++;           
+        }         
+        return c;    
+    }
+}
+
+*********************week 17Assignment********************
+
+//Bulb.java
+import java.util.*;
+class Bulb
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int on=0,off=100;
+        int bulb[]=new int[100];
+        for(int k=0;k<100;k++)
+        {
+            bulb[k]=0;
+        }
+        while(sc.hasNextLine())
+        {
+        String s=sc.nextLine();
+        if(s.startsWith("1"))
+        {
+            String ar[]=s.split(" ");
+            int a=Integer.parseInt(ar[1]);
+            int b=Integer.parseInt(ar[2]);
+            for(int i=a;i<=b;i++)
+            {
+                bulb[i]=1;
+                // on++;
+                // off--;
+            }
+        }
+        if(s.startsWith("0"))
+        {
+            String ar[]=s.split(" ");
+            int a=Integer.parseInt(ar[1]);
+            int b=Integer.parseInt(ar[2]);
+            for(int i=a;i<=b;i++)
+            {
+                bulb[i]=0;
+                // on--;
+                // off++;
+            }
+        }
+        if(s.startsWith("x"))
+        {
+            // int temp=0;
+            // temp=off;
+            // off=on;
+            // on=temp;
+            for(int i=0;i<100;i++)
+            {
+                if(bulb[i]==0)
+                bulb[i]=1;
+                else
+                bulb[i]=0;
+            }
+        }
+        if(s.startsWith("p"))
+        {
+            int c=0;
+            for(int i=0;i<100;i++)
+            {
+                if(bulb[i]==1)
+                c++;
+            }
+            System.out.println(c);
+        }
+        }
+    }
+}
+
+
+//Stone.java
+import java.util.*;
+class Stone
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);         
+        int n=sc.nextInt();
+        sc.nextLine();
+        int player1=0,player2=0,player3=0;         
+        for(int i=0;i<n;i++)         
+        {             
+            String s=sc.nextLine();             
+            String s1[]=s.split("\\s+");            
+            if(s.contains("stone")&&s.contains("paper")&&s.contains("scissors"))             
+            {                 
+                player1+=1;                 
+                player2+=1;                
+                player3+=1;            
+            }             
+            else if(s.contains("scissors")&&s.contains("stone"))       
+            {                 
+                int scissors=0,stone=0;                 
+                for(int j=0;j<3;j++)                 
+                {                     
+                    if(s1[j].equals("scissors"))  
+                    scissors++;                     
+                    else if((s1[j].equals("stone")))   
+                    stone++;                 
+                }                 
+                if(stone==1)
+                {                 
+                    if(s1[0].equals("stone"))                 
+                    player1+=2;                 
+                    else if(s1[1].equals("stone")) 
+                    player2+=2;                 
+                    else                 
+                    player3+=2;              
+                }                 
+                else                 
+                {                     
+                    if(s1[0].equals("stone"))       
+                    player1+=1;                     
+                    else if(s1[1].equals("stone"))     
+                    player2+=1;                    
+                    else                     
+                    player3+=1;              
+                }           
+            }             
+            else if(s.contains("scissors")&&s.contains("paper"))
+            {                 
+                int scissors=0,paper=0;                 
+                for(int j=0;j<3;j++)                 
+                {                     
+                    if(s1[j].equals("scissors"))
+                    scissors++;                     
+                    else if((s1[j].equals("paper")))
+                    paper++;                 
+                }                 
+                if(scissors==1)
+                {                 
+                    if(s1[0].equals("scissors")) 
+                    player1+=2;                 
+                    else if(s1[1].equals("scissors")) 
+                    player2+=2;                 
+                    else                 
+                    player3+=2;              
+                }                 
+                else                 
+                {                     
+                    if(s1[0].equals("scissors"))   
+                    player1+=1;                     
+                    else if(s1[1].equals("scissors"))  
+                    player2+=1;                     
+                    else                     
+                    player3+=1;               
+                }          
+            }             
+            else if(s.contains("stone")&&s.contains("paper"))   
+            {                 
+                int stone=0,paper=0;                 
+                for(int j=0;j<3;j++)                 
+                {                     
+                    if(s1[j].equals("stone"))   
+                    stone++;                     
+                    else if((s1[j].equals("paper"))) 
+                    paper++;                 
+                }                 
+                if(paper==1)
+                {                 
+                    if(s1[0].equals("paper"))      
+                    player1+=2;                 
+                    else if(s1[1].equals("paper"))
+                    player2+=2;                 
+                    else                 
+                    player3+=2;            
+                }                 
+                else                 
+                {                     
+                    if(s1[0].equals("paper"))   
+                    player1+=1;                     
+                    else if(s1[1].equals("paper"))  
+                    player2+=1;                     
+                    else                     
+                    player3+=1;                
+                }             
+            }        
+        }         
+        List<String> li=new ArrayList<>();         
+        li.add(player1+" "+"Player1");         
+        li.add(player2+" "+"Player2");         
+        li.add(player3+" "+"Player3");         
+        Collections.sort(li);         
+        String s3[]=li.get(2).split("\\s+");         
+        if(player1==player2&&player1==player3)         
+        System.out.println("Draw");         
+        else         
+        System.out.println(s3[1]+" won the game");
+    }
+}
+
+
+//Piggy.java
+import java.util.*;
+import java.util.Arrays;
+import java.util.StringTokenizer;
+class Piggy
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        StringTokenizer st=new StringTokenizer(sc.nextLine());         
+        int e=Integer.parseInt(st.nextToken());         
+        int f=Integer.parseInt(st.nextToken());         
+        int W=f-e;         
+        int n=Integer.parseInt(sc.nextLine());         
+        int v[]=new int[n];         
+        int w[]=new int[n];         
+        for(int i=0;i<n;i++)         
+        {             
+            st=new StringTokenizer(sc.nextLine());             
+            v[i]=Integer.parseInt(st.nextToken());             
+            w[i]=Integer.parseInt(st.nextToken());      
+        }         
+        long dp[]=new long[W+1];           
+        dp[0]=0;           
+        for (int i=1;i<=W;i++)         
+        {             
+            long min=1000000000;             
+            for (int j=0;j<n;j++)             
+            {                 
+                long sum=0;               
+                if(i-w[j]>=0)               
+                {                 
+                    sum=v[j]+dp[i-w[j]];                   
+                    if(min>sum) min=sum;            
+                }            
+            }             
+            dp[i]=min;        
+        }        
+        if(dp[W]>=1000000000)  
+        System.out.println("Impossible");        
+        else 
+        System.out.println(dp[W]);        
+    }
+}
+
+
+//Mode.java
+import java.util.*;
+class Mode
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=0;i<t;i++)
+        {
+            int n=sc.nextInt();
+            int max=0; 			
+            int[] f=new int[100001]; 			
+            for(int j=0;j<n;j++) 		
+            { 				
+            int x=sc.nextInt(); 				
+            f[x]++; 				
+            if(max<f[x]) 					
+            max=f[x]; 			
+            } 		
+            String ans="";
+            for(int j=100000-1;j>=0;j--) 			
+            { 				
+                if(f[j]==max) 					
+                ans+=j+" "; 			
+            } 			
+            System.out.println(ans.trim());
+        }
+    }
+}
+//Sunday.java
+import java.util.*; 
+class Sunday 
+{               
+    public static void main(String args[])        
+    {               
+        Scanner sc = new Scanner(System.in);             
+        int n = sc.nextInt();            
+        for(int i=0;i<n;i++)          
+        {                           
+            int m = sc.nextInt();                
+            int y = sc.nextInt();               
+            countSundays(y,m);        
+        }   
+    }     
+    public static void countSundays(int year,int month)     
+    {                      
+        String op = "";             
+        Calendar cal = Calendar.getInstance();                 
+        cal.set(year,month-1,1);             
+        int daysInMonth = cal.getActualMaximum(Calendar.DAY_OF_MONTH);          
+        for(int day=1;day<=daysInMonth;day++)          
+        {                           
+            cal.set(year,month-1,day);                    
+            int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);           
+            if(dayOfWeek==Calendar.SUNDAY)               
+            {                                 
+                op +=  day + " ";            
+            }        
+        }                          
+        System.out.println(op.trim());    
+    }
+}
+
+
+//Calculation.java
+import java.util.*;
+import java.math.*;
+class Calculation
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String a=sc.next();
+        String b=sc.next();
+        String c=sc.next();
+        int x=Integer.parseInt(a,2);
+        int y=Integer.parseInt(b,2);
+        String res="";
+        if(c.equals("+"))
+        {
+            res=String.format("%016d", new BigInteger(Integer.toBinaryString(x+y)));             
+            StringBuilder str=new StringBuilder(res);             
+            for(int i=3;i<res.length();i=i+5)             
+            {                 
+                str.insert(i+1,'-');          
+            }             
+            res=str.toString();             
+            System.out.println(res);
+        }
+        if(c.equals("-"))
+        {
+            res=String.format("%016d", new BigInteger(Integer.toBinaryString(x-y)));             
+            StringBuilder str=new StringBuilder(res);             
+            for(int i=3;i<res.length();i=i+5)             
+            {                 
+                str.insert(i+1,'-');          
+            }             
+            res=str.toString();             
+            System.out.println(res);
+        }
+        if(c.equals("*"))
+        {
+            res=String.format("%016d", new BigInteger(Integer.toBinaryString(x*y)));             
+            StringBuilder str=new StringBuilder(res);             
+            for(int i=3;i<res.length();i=i+5)             
+            {                 
+                str.insert(i+1,'-');          
+            }             
+            res=str.toString();             
+            System.out.println(res);
+        }
+        if(c.equals("/"))
+        {
+            res=String.format("%016d", new BigInteger(Integer.toBinaryString(x/y)));             
+            StringBuilder str=new StringBuilder(res);             
+            for(int i=3;i<res.length();i=i+5)             
+            {                 
+                str.insert(i+1,'-');          
+            }             
+            res=str.toString();             
+            System.out.println(res);
+        }
+    }
+}
+
+
+//Game29.java
+import java.util.*;
+class Game29
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int count=8;         
+        String trump="";         
+        ArrayList<String> li=new ArrayList();         
+        while(sc.hasNextLine())         
+        {             
+            String s=sc.nextLine();             
+            if(!s.equals("CONTINUE"))             
+            {                 
+                li.add(s);             
+            }             
+            if(s.contains("SHOW-TRUMP"))             
+            {                 
+                String s1[]=s.split(" ");                 
+                trump=s1[1];            
+            }        
+        }         
+        boolean show=false;         
+        for(int i=0;i<li.size();i++)         
+        {             
+            if(li.get(i).equals("COUNT-TRUMP"))             
+            {                 
+                if(show)                 
+                System.out.println(count);                 
+                else                 
+                System.out.println("TRUMP NOT SHOWN");      
+            }             
+            else if(li.get(i).contains("SHOW-TRUMP"))   
+            {                 
+                show=true;         
+            }             
+            else if(li.get(i).contains(trump))            
+            {                 
+                String temp=li.get(i);         
+                for(int k=0;k<temp.length();k++) 
+                {                     
+                    if((temp.charAt(k)+"").equals(trump)) 
+                    count--;          
+                }           
+            }        
+        }
+    }
+}
+
+
+//Recipe.java
+import java.util.*;
+class Recipe
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);               
+        byte t=s.nextByte();               
+        while(t-->0)              
+        {                       
+            String str=s.next();                 
+            long prod=1,flag=0;                    
+            int n=str.length();                     
+            for(int i=0;i<n/2;i++)                       
+            {                               
+                if(str.charAt(i)==str.charAt(n-i-1))      
+                {                            
+                    if(str.charAt(i)=='?')     
+                    {               
+                        prod=(prod*26)%10000009;   
+                    }              
+                }                             
+                else                          
+                {                                 
+                    if(str.charAt(i)!='?' && str.charAt(n-i-1)!='?')           
+                    {                             
+                        flag=1;                             
+                        break;                      
+                    }                             
+                }                  
+            }                        
+            if(n%2!=0 && str.charAt((int) n/2)=='?')  
+            {                               
+                prod=(prod*26)%10000009;          
+            }                      
+            if(flag==0)                 
+            {                               
+                System.out.println(prod);           
+            }                       
+            else                         
+            {                               
+                System.out.println("0");         
+            }               
+        }    
+    }
+}
+
+**********************week18Assignment***********************
+1.
+//MiniMatrix.java
+import java.util.*;
+class MiniMatrix
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int a[][]=new int[3][3];
+        int b[][]=new int[3][3];
+        int sum[][]=new int[3][3];
+        int diff[][]=new int[3][3];
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                a[i][j]=sc.nextInt();
+            }
+        }
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                b[i][j]=sc.nextInt();
+            }
+        }
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                sum[i][j]=a[i][j]+b[i][j];
+            }
+        }
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                diff[i][j]=a[i][j]-b[i][j];
+            }
+        }
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(j==0)
+               System.out.print(sum[i][j]);
+               else
+               System.out.print(" "+sum[i][j]);
+            }
+            System.out.println();
+        }
+        System.out.println();
+        for(int i=0;i<3;i++)
+        {
+            for(int j=0;j<3;j++)
+            {
+                if(j==0)
+               System.out.print(diff[i][j]);
+               else
+               System.out.print(" "+diff[i][j]);
+            }
+            System.out.println();
+        }
+    }
+}
+
+2.
+//RemoveFriend.java
+import java.util.*;
+class RemoveFriend
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t = sc.nextInt(); 		
+        for(int i = 0; i < t; i++)
+        { 			
+            int n = sc.nextInt(); 			
+            int k = sc.nextInt(); 			
+            int[] a = new int[n]; 	
+            a[0] = sc.nextInt(); 		
+            for(int j = 1;j < n; j++)
+            { 				
+                int pop = sc.nextInt(); 
+                while(a[j-1] < pop)
+                { 					
+                    if(k > 0)
+                    { 					
+                        j--; 	
+                        k--; 	
+                        n--; 	
+                    } 					
+                    if(j == 0 || k == 0)
+                    break; 				
+                } 				
+                a[j] = pop; 	
+            } 			
+            for(int j = 0;j < n-k; j++)
+            { 	
+                if(j==0)
+                System.out.print(a[j]);
+                else
+                System.out.print(" "+a[j]);
+            } 			
+            System.out.println(); 	
+        }
+    }
+}
+
+
+3.
+
+//Weight.java
+import java.util.*;
+class Weight
+{
+    public static void main(String args[])
+    {
+       Scanner sc=new Scanner(System.in);                
+       int input=sc.nextInt();                
+       ArrayList<String> al=new ArrayList<String>();           
+       ArrayList<String> tot=new ArrayList<String>();          
+       int small=0;String fin="";                
+       for(int z=0;z<input;z++)              
+       al.add(sc.next());                  
+       HashSet<Integer> len=new LinkedHashSet<Integer>(); 
+       for(String s1:al)
+       {                          
+           int sum=0;                         
+           for(int i=0;i<s1.length();i++)     
+           {                                       
+               char c=s1.charAt(i);           
+               if(c>=97&&c<=122)          
+               {                          
+                   int val=-1;            
+                   for(int j=97;j<122;j++)
+                   {                      
+                       if(c==j)
+                       {       
+                           sum+=val;       
+                           break;
+                       }                                 
+                       val-=1;                            
+                    }          
+                }          
+                if(c>=65&&c<=90)             
+                {                           
+                    int val1=1;          
+                    for(int k=65;k<90;k++)      
+                    {               
+                        if(c==k)    
+                        {           
+                            sum+=val1;    
+                            break;        
+                        }                 
+                        val1+=1;        
+                    }                   
+                }           
+            }                    
+            len.add(sum);         
+            if(small>sum)         
+            small=sum;            
+            tot.add(s1+sum);      
+        }                
+        ArrayList<Integer> al2=new ArrayList<Integer>(len); 
+        Collections.sort(al2);                  
+        for(int p=0;p<len.size();p++)      
+        {
+            String s=Integer.toString(al2.get(p));
+            for(int m=0;m<tot.size();m++)     
+            {                   
+                if(tot.get(m).contains(s))            
+                fin+=(tot.get(m).substring(0,(tot.get(m).length())-s.length())+" ");    
+            }              
+        }                
+        System.out.print(fin.trim());  
+    }
+}
+
+4.
+//Work.java
+import java.util.*;
+class Work
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        String s1[]=s.split(" ");
+        for(int i=0;i<s1.length;i++)
+        {
+            if(s1[i].equals("is"))
+            {
+                s1[i]="is not";
+            }
+            if(s1[i].equals("is-is"))
+            {
+                s1[i]="is not-is not";
+            }
+        }
+         for(int i=0;i<s1.length;i++)
+        {
+            System.out.print(s1[i]+" ");
+        }
+    }
+}
+
+5.//SearchIt.java
+import java.util.*;
+class SearchIt
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=sc.nextInt();
+        }
+        int key=sc.nextInt();
+        int count=0;
+        for(int i=0;i<n;i++)
+        {
+            if(ar[i]==key)
+            count++;
+        }
+        System.out.println(key);
+        System.out.println(count);
+    }
+}
+
+6.
+//Cricket.java
+import java.util.*;
+class Cricket
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int a,sum=0,max=0;
+        for(int i=1;i<=n;i++)
+        {
+            a=sc.nextInt();
+            sum+=a;
+            if(sum>0)
+            {
+                if(max<sum)
+                max=sum;
+            }
+            else
+            sum=0;
+        }
+        System.out.println(max);
+    }
+}
+
+7.
+//Happy.java
+import java.util.*;
+class Happy
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String s=Integer.toString(n);
+        int temp=0,sum=0;
+        if(s.length()==2)
+        {
+            temp=n;
+            while(temp>9)
+            {
+            sum=0;
+            while(temp>0)
+            {
+                int rem=temp%10;
+                sum+=rem*rem;
+                temp=temp/10;
+            }
+            temp=sum;
+            }
+            if(temp==1)
+            System.out.println(n+" is a happy number");
+            else
+            System.out.println(n+" is not a happy number");
+        }
+        else
+        System.out.println(n+" is an Invalid input");
+    }
+}
+
+
+8.
+//Roman.java
+import java.util.*;
+class Roman
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String r[]={"M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"};
+        int d[]={1000,900,500,400,100,90,50,40,10,9,5,4,1};
+        String ans="";
+        if(n>0 && n<4000)
+        {
+            for(int i=0;i<13;i++)
+            {
+                while(n>=d[i])
+                {
+                    n=n-d[i];
+                    ans+=r[i];
+                }
+            }
+            System.out.println(ans);
+        }
+        else
+        {
+            System.out.println(n+" is an Invalid input");
+        }
+    }
+}
+
+9
+
+//Smith.java
+import java.util.*;
+class Smith
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        if(n<1000)
+        {
+            int a=digitsum(n);
+            int b=sumprime(n);
+            if(a==b)
+            System.out.println(n+" is a Smith number");
+            else
+            System.out.println(n+" is not a Smith number");
+        }
+        else
+        System.out.println(n+" is an Invalid input");
+    }
+    public static int digitsum(int a)
+    {
+        int sum=0;
+        while(a>0)
+        {
+            sum+=a%10;
+            a=a/10;
+        }
+        return sum;
+    }
+    public static int sumprime(int a)
+    {
+        int i=2,sum=0;
+        while(a>1)
+        {
+            if(a%i==0)
+            {
+                sum+=digitsum(i);
+                a=a/i;
+            }
+            else
+            i++;
+        }
+        return sum;
+    }
+}
+
+10.
+//IsbnNumber.java
+import java.util.*;  
+class IsbnNumber 
+{     
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);         
+        String s;         
+        s=sc.next();         
+        int sum=0;         
+        if(s.length()==10&&(Character.isDigit(s.charAt(s.length()-1)))||s.charAt(s.length()-1)=='X')         
+        {             
+            int k=10;             
+            for(int i=0;i<s.length();i++)             
+            {                 
+                char c=s.charAt(i);                 
+                if(c=='X')                 
+                sum+=10*k;                 
+                else                 
+                sum+=(c-48)*k;                 
+                k--;         
+            }             
+            if(sum%11==0)             
+            System.out.print(s+" is a valid ISBN number"); 
+            else             
+            System.out.print(s+" is not a valid ISBN number");   
+        }             
+        else             
+        {                 
+            System.out.print(s+" is an Invalid input");   
+        }          
+    }      
+}
+
+*******************Week18QODMOnday************
+
+//PrimeIndex.java
+import java.util.*;
+class PrimeIndex
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int ar[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            ar[i]=sc.nextInt();
+        }
+        ArrayList <String> ans=new ArrayList();
+        for(int i=0;i<n;i++)
+        {
+            if(isprime(i) && isprime(ar[i]))
+            {
+                ans.add(ar[i]+" "+i);
+            }
+        }
+        System.out.println(ans.size());
+        for(int i=0;i<ans.size();i++)
+        {
+            System.out.println(ans.get(i));
+        }
+    }
+    public static boolean isprime(int a)
+    {
+        int count=0;
+        for(int i=1;i<=a;i++)
+        {
+            if(a%i==0)
+            count++;
+        }
+        if(count==2)
+        return true;
+        else
+        return false;
+    }
+}
+
+**************QOD****************
+
+import java.util.*;
+class QOD
+{
+    public static void main(String args[])
+    {
+        Scanner s=new Scanner(System.in);
+        int t=s.nextInt();
+        s.nextLine();
+        String str[]=new String[t];
+        for(int i=0;i<t;i++)
+        {
+            str[i]=s.nextLine();
+            StringBuffer sb=new StringBuffer(str[i]);
+            str[i]=sb.reverse().toString();
+        }
+        Arrays.sort(str);
+        StringBuffer sb1=new StringBuffer(str[t-1]);
+        String d=sb1.reverse().toString();
+        String p[]=d.split(" ");
+        System.out.println(p[0]);
+    }
+}
+
+*********QOD**************
+
+import java.util.Scanner;
+public class AniruddhasQueuea {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int t=sc.nextInt();
+	for(int i=0;i<t;i++){
+		int n=sc.nextInt();
+		long[] a=new long[n];
+		long sum=0;
+		for(int j=0;j<n;j++){
+			a[j]=sc.nextLong();
+			sum=sum+a[j];
+		}
+		long m=sc.nextLong();
+		long year=m/sum;
+		long temp=sum*year;
+		if(temp==m)
+			m=sum;
+		else
+		   m=m-sum*year;
+		int j=0;
+		for(j=0;j<n;j++){
+			m=m-a[j];
+			if(m<=0)
+				break;
+		}
+		System.out.println(j+1);
+	}
+}
+}
+
+****************************week 19******************************
+
+1.//Ipl.java
+import java.util.*;
+class Ipl
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String team1=sc.next();
+        int score1[]=new int[11];
+        int sum1=0,sum2=0;
+        for(int i=0;i<11;i++)
+        {
+            score1[i]=sc.nextInt();
+            sum1+=score1[i];
+        }
+        String team2=sc.next();
+        int score2[]=new int[11];
+        for(int i=0;i<11;i++)
+        {
+            score2[i]=sc.nextInt();
+            sum2+=score2[i];
+        }
+        Arrays.sort(score1);
+        Arrays.sort(score2);
+        if(sum1<sum2)
+        {
+        System.out.println(team2);
+        }
+        else
+        {
+        System.out.println(team1);
+        }
+        if(score1[10]<score2[10])
+         System.out.println(score2[10]);
+         else
+         System.out.println(score1[10]);
+    }
+}
+2.
+//Compiler1.java
+import java.util.*;
+class Compiler1
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String input=sc.nextLine();
+        String input1[]=input.split("\\//");
+        input1[0]=input1[0].replace("->",".");
+        System.out.println(input1[0]+"//"+input1[1]);
+    }
+}
+
+
+
+3.//Digit.java
+import java.util.*;
+class Digit
+{
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);         
+        int t=sc.nextInt();         
+        if(t<=15&&t>=1)         
+        {             
+            String res="";           
+            for(int i=0;i<t;i++)       
+            {                
+                int n=sc.nextInt();          
+                if(n<=1010&&n>=1)            
+                {                  
+                    int c=digitDivide(n);  
+                    if(c!=0)
+                    {         
+                        res+=c+"\n";              
+                    }                     
+                    else                
+                    res+="No digit exactly divides "+n+"\n";   
+                }                
+                else
+                {   
+                    System.out.println("Wrong Input");    
+                    return;            
+                }                     
+            }            
+            System.out.println(res);       
+        }         
+        else         
+        System.out.println("Wrong Input"); 
+    }
+    public static int digitDivide(int n)     
+    {         
+        int temp=n;         
+        int c=0;         
+        while(temp>0)         
+        {             
+            int digit=temp%10;             
+            if(digit!=0)
+            {                 
+                if(n%digit==0)  
+                c++;         
+            }             
+            temp/=10;       
+        }        
+        return c;   
+    }     
+}
+
+
+4.
+//Prime.java
+import java.util.*;
+class Prime
+{
+    public static void main(String args[])   
+    {         
+        Scanner sc=new Scanner(System.in);        
+        int n=sc.nextInt();         
+        for(int i=0;i<n;i++)     
+        {           
+            String s=sc.next();    
+            System.out.println(removePrimeAscii(s)); 
+        }
+    }
+    public static boolean isPrime(int a)     
+    {         
+        if(a<=1)         
+        return false;         
+        for(int i=2;i<Math.sqrt(a);i++)         
+        {             
+            if(a%i==0)             
+            return false;         
+        }         
+        return true;   
+    }     
+    public static String removePrimeAscii(String s1)     
+    {         
+        String ans="";         
+        for(int i=0;i<s1.length();i++)       
+        {             
+            int ascii=(int)s1.charAt(i);       
+            if(!isPrime(ascii))       
+            {                
+                ans+=s1.charAt(i);       
+            }       
+        }         
+        if(ans.equals(""))      
+        {             
+            ans="NULL";      
+        }        
+        return ans;   
+    }    
+}
+
+
+5.//Secret.java
+import java.util.*;
+class Secret
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        6
+
+Lets go to the sandwich shop today
+    }
+}
+
+
+6.//Jai.java
+import java.util.*;
+class Jai
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);         
+        String ans="";          
+        while(sc.hasNextLine())         
+        {             
+            String s=sc.nextLine();
+            String ar[]=s.split(" ");
+            if(ar.length>=10)
+            {
+            System.out.println("Invalid input");
+            return;
+            }
+            else
+            ans+=ar.length;
+        }
+        while(ans.length()!=4)
+        ans+="0";
+        System.out.println(ans);
+    }
+}
+
+
+
+7.//Odd.java
+import java.util.*;
+class Odd
+{
+    public static void main(String args[])     
+    {         
+        Scanner sc=new Scanner(System.in);        
+        int n=sc.nextInt();         
+        int a[]=new int[n];         
+        for(int i=0;i<n;i++)        
+        {             
+            a[i]=sc.nextInt();       
+        }         
+        boolean found=false;         
+        for(int i=0;i<n;i++)         
+        {             
+            if(a[i]!=-99)           
+            {                 
+                int c=countOccurence(a,a[i]); 
+                if(isOdd(c))                
+                {                   
+                    System.out.println("Count of "+a[i]+" is "+c);    
+                    found=true;                
+                }           
+            }        
+        }        
+        if(!found)         
+        System.out.println("No element is found");  
+    }
+    public static int countOccurence(int[] a,int x)     
+    {         
+       int count=0;         
+       boolean flag=true;         
+       for(int i=0;i<a.length;i++)       
+       {             
+           if(a[i]==x)
+           {            
+               count++;             
+               if(!flag)
+               {           
+                   a[i]=-99;           
+               }             
+               flag=false;          
+            }       
+        }        
+        return count;   
+    }     
+    public static boolean isOdd(int c)   
+    {        
+        return c%2!=0;   
+    }          
+}
+
+8.//SeTeam.java
+import java.util.*;
+class SeTeam
+{
+    public static void main(String args[])
+    {
+       Scanner sc=new Scanner(System.in);         
+       List<Integer> positive=new ArrayList<>();         
+       List<Integer> negative=new ArrayList<>();         
+       boolean zero=false;         
+       while(sc.hasNextInt())
+       {             
+           int n=sc.nextInt();             
+           if(n>=0)             
+           {                 
+               positive.add(n);          
+           }             
+            else             
+            negative.add(n);      
+        }         
+        Collections.sort(positive);         
+        Collections.sort(negative);         
+        String ans="";         
+        while(true)         
+        {             
+            if(positive.size()!=0)
+            {             
+                ans+=positive.get(0)+" ";             
+                positive.remove(0);          
+            }             
+            if(negative.size()!=0)
+            {             
+                ans+=negative.get(0)+" ";      
+                negative.remove(0);         
+            }             
+            if(positive.size()==0&&negative.size()==0)  
+            break;       
+        }         
+        System.out.println(ans.trim());
+    }
+}
+
+
+9.//Clumps.java
+import java.util.*;
+class Clumps
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int n=sc.nextInt();
+            int ar[]=new int[n];
+            Set <Integer> s=new TreeSet();
+            for(int j=0;j<n;j++)
+            {
+                ar[j]=sc.nextInt();
+                s.add(ar[j]);
+            }
+            if(s.size()==n)
+            System.out.println("0"+" clumps");
+            else if(s.size()==1)
+            System.out.println("1"+" clump");
+            else
+            System.out.println(s.size()+" clumps");
+        }
+    }
+}
+
+
+
+10.
+//Upc.java
+import java.util.*;
+class Upc
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String n=sc.next();
+        int evensum=0,oddsum=0,totalsum=0;
+        String ans="";
+        if(n.length()==11)
+        {
+        for(int i=0;i<n.length();i=i+2)
+        {
+            char c=n.charAt(i);
+            oddsum+=Character.getNumericValue(c);
+        }
+        for(int i=1;i<n.length();i=i+2)
+        {
+            char c=n.charAt(i);
+            evensum+=Character.getNumericValue(c);
+        }
+        totalsum=(oddsum*3)+evensum;
+        int digit=totalsum%10;
+        if(digit!=0)
+        digit=10-digit;
+        ans=n+digit;
+        System.out.println(ans);
+        }
+        else
+        System.out.println(n+" is an invalid Input");
+    }
+}
+
+******************************week20************************************
+
+
+1.//Abecedarian.java
+import java.util.*;
+class Abecedarian
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        String s=sc.next();
+        String s1[]=s.split(",");
+        for(int i=0;i<s1.length;i++)
+        {
+            boolean ans=isSort(s1[i]);
+            if(ans)
+            System.out.print("1");
+            else
+            System.out.print("0");
+            if(i<s1.length-1)
+            System.out.print(",");
+        }
+    }
+    public static boolean isSort(String s)
+    {
+        boolean flag=true;         
+        char c=s.charAt(0);         
+        for(int i=0;i<s.length();i++)
+        {            
+            char c1=s.charAt(i);        
+            if(c>c1)
+            {      
+                flag=false;     
+                break;          
+            }           
+            c=c1;        
+        }         
+        return flag;  
+    }
+}
+
+2.//SplitArray.java
+import java.util.*;
+class SplitArray
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+           int n=sc.nextInt();
+           int a[]=new int[n];
+           int sum=0;
+           for(int j=0;j<n;j++)
+           {
+               a[j]=sc.nextInt();
+               sum+=a[j];
+           }
+           if(findpart(a,a.length))
+                System.out.println(sum/2);
+           else
+                System.out.println(-1);
+        }
+    }
+    public static boolean findpart(int a[], int n)
+    {
+        int sum=0;
+        for(int i=0;i<n;i++)
+            sum+=a[i];
+        if(sum%2!=0)
+            return false;
+        boolean part[][]=new boolean[sum/2+1][n+1];
+        for(int i=0;i<=n;i++)
+           part[0][i]=true;
+        for(int i=0;i<=sum/2;i++)
+            part[i][0]=false;
+        for(int i=1;i<=sum/2;i++)
+        {
+            for(int j=1;j<=n;j++)
+            {
+                part[i][j]=part[i][j-1];
+                if(i>=a[j-1])
+                part[i][j]=part[i][j]||part[i-a[j-1]][j-1];
+            }
+        }
+        return part[sum/2][n];
+    }
+}
+
+
+
+3.//InnerAndOuter.java
+import java.util.*;
+class InnerAndOuter
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int o=sc.nextInt();         
+        int i1=sc.nextInt();          
+        int []out=new int[o];        
+        int []in=new int[i1];        
+        int c=0;                 
+        for(int i=0;i<o;i++)
+        {                     
+            out[i]=sc.nextInt();       
+        }                  
+        for(int j=0;j<i1;j++)
+        {                    
+            in[j]=sc.nextInt();    
+        }               
+        for(int i=0;i<in.length;i++)
+        {        
+            for(int j=0;j<out.length;j++)
+            {                       
+                if(in[i]==out[j]&&in[i]!=0)
+                {                         
+                    int p=in[i];              
+                    c++;                 
+                    for(int s=j+1;s<out.length;s++)  
+                    if(out[s]==p)         
+                    out[s]=0;             
+                }     
+            }        
+        }         
+        if(c>=in.length)        
+        {             
+            System.out.println("true");     
+            for(int i=0;i<in.length;i++)
+            {                
+                for(int j=0;j<out.length;j++)
+                {                     
+                    if(in[i]==out[j])      
+                    System.out.println(out[j]+" "+j); 
+                }                       
+            }        
+        }         
+        else       
+        {          
+            System.out.println("false");     
+            for(int i=0;i<in.length;i++)
+            {                 
+                int r=0;             
+                for(int j=0;j<out.length;j++)
+                {                 
+                    if(in[i]==out[j])      
+                    r=1;               
+                }                
+                if(r==0)                
+                System.out.println(in[i]+" "); 
+            }                    
+        }
+    }
+}
+
+4.//MatrixMultiplication.java
+import java.util.*;
+class MatrixMultiplication
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int [][]a1=new int[3][3];         
+        int [][]a2=new int[3][3];         
+        int [][]mul=new int[3][3];         
+        int c=0;         
+        int c1=0;                  
+        for(int i=0;i<3;i++)
+        {                        
+            for(int j=0;j<3;j++)
+            {                  
+                a1[i][j]=sc.nextInt();        
+            }                    
+        }                  
+        for(int i=0;i<3;i++)
+        {                   
+            for(int j=0;j<3;j++)
+            {                      
+                a2[i][j]=sc.nextInt();  
+            }                   
+        }                  
+        for(int i=0;i<mul.length;i++)
+        {                     
+            for(int j=0;j<mul.length;j++)
+            {                          
+                for(int k=0;k<mul.length;k++)
+                {                     
+                    mul[i][j]=mul[i][j]+a1[i][k]*a2[k][j]; 
+                }         
+            }     
+        }             
+        for(int i=0;i<3;i++)
+        {               
+            for(int j=0;j<3;j++)
+            {                     
+                if(mul[i][j]==0)
+                    c++;    
+                else
+                    c1++;        
+            }      
+        }            
+        if(c>c1)
+        {             
+            System.out.println("Sparse Matrix");      
+            System.out.println("Number of zeroes - "+c); 
+        }        
+        else
+        {        
+            System.out.println("Not a Sparse Matrix");     
+            System.out.println("Number of non-zero elements - "+c1);    
+        }
+    }
+}
+
+
+5.//TotalPrimeDifference.java
+import java.util.*;
+class TotalPrimeDifference
+{
+    public static void main(String args[])
+    {        
+        Scanner sc=new Scanner(System.in);     
+        int n=sc.nextInt();         
+        int d1=0;         
+        int d2=0; 
+        for(int i=n+1; ;i++)
+        {      
+            if(isPrime(i))
+            {
+              d1=i-n;
+              if(d1==1)
+              {
+              System.out.println("Total prime difference of "+n+" is "+d1);
+              return;
+              }
+              else
+               {
+                    for(int j=d1+1;;j++)
+                    {
+                        if(isPrime(j))
+                        {
+                            System.out.println("Total prime difference of "+n+" is "+j);
+                            return;
+                        }
+                    }
+                }
+            }
+        }       
+    }
+    public static boolean isPrime(int n)
+   {    
+       for(int i=2;i<=Math.sqrt(n);i++)
+        {             
+           if(n%i==0)
+            {          
+               return false;        
+            }       
+        }         
+        return true;   
+    }     
+}
+
+
+6.//MatrixMultiplication.java
+import java.util.*;
+class MatrixMultiplication
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int [][]a1=new int[3][3];         
+        int [][]a2=new int[3][3];         
+        int [][]mul=new int[3][3];         
+        int c=0;         
+        int c1=0;                  
+        for(int i=0;i<3;i++)
+        {                        
+            for(int j=0;j<3;j++)
+            {                  
+                a1[i][j]=sc.nextInt();        
+            }                    
+        }                  
+        for(int i=0;i<3;i++)
+        {                   
+            for(int j=0;j<3;j++)
+            {                      
+                a2[i][j]=sc.nextInt();  
+            }                   
+        }                  
+        for(int i=0;i<mul.length;i++)
+        {                     
+            for(int j=0;j<mul.length;j++)
+            {                          
+                for(int k=0;k<mul.length;k++)
+                {                     
+                    mul[i][j]=mul[i][j]+a1[i][k]*a2[k][j]; 
+                }         
+            }     
+        }             
+        for(int i=0;i<3;i++)
+        {               
+            for(int j=0;j<3;j++)
+            {                     
+                if(mul[i][j]==0)
+                    c++;    
+                else
+                    c1++;        
+            }      
+        }            
+        if(c>c1)
+        {             
+            System.out.println("Sparse Matrix");      
+            System.out.println("Number of zeroes - "+c); 
+        }        
+        else
+        {        
+            System.out.println("Not a Sparse Matrix");     
+            System.out.println("Number of non-zero elements - "+c1);    
+        }
+    }
+}
+7.//MirrorWords.java
+import java.util.*;
+class MirrorWords
+{
+    public static void main(String[] args)      
+    {                  
+        Scanner sc=new Scanner(System.in);     
+        int n=sc.nextInt();         
+        String a[]=new String[n];      
+        String ans="";          
+        for(int i=0;i<n;i++)   
+        {                    
+            a[i]=sc.next();         
+        }                  
+        for(String str:a)      
+        {             
+            if(isCorrect(str)&&isPalindrome(str))       
+            ans+=str+",";       
+        }        
+        System.out.println(ans.substring(0,ans.length()-1));   
+    }         
+    static boolean isPalindrome(String s)    
+    {            
+        String rev="";       
+        for(int i=s.length()-1;i>=0;i--)  
+        {              
+            rev=rev+s.charAt(i);      
+        }             
+        return s.equals(rev);    
+    }             
+    static boolean isCorrect(String s)     
+    {                 
+        boolean flag=true;       
+        for(int i=0;i<s.length();i++)     
+        {               
+            if(s.charAt(i)=='o'||s.charAt(i)=='x'||s.charAt(i)=='r'||s.charAt(i)=='m'||s.charAt(i)=='v'||s.charAt(i)=='w'||s.charAt(i)=='l'||s.charAt(i)=='i')         
+            {                     
+                continue;                  
+            }                  
+            else                 
+            {                     
+                flag=false;       
+                break;            
+            }                    
+        }                    
+        return flag;         
+    }
+}
+
+8.//Password.java
+import java.util.*;
+class Password
+{
+    public static void main(String args[])          
+    {                  
+        Scanner sc=new Scanner(System.in);           
+        int n=sc.nextInt();         
+        String pass[]=new String[n];         
+        int c=0;         
+        for(int i=0;i<n;i++)         
+        {             
+            pass[i]=sc.next();       
+        }         
+        for(int i=0;i<n;i++)         
+        {             
+            for(int j=0;j<n;j++)          
+            {                 
+                if(palindrome(pass[i]).equals(pass[j]))    
+                {                     
+                    System.out.println(pass[i].length()+" "+pass[i].charAt(pass[i].length()/2));   
+                    c=1;                     
+                    break;              
+                }           
+            }            
+            if(c==1)     
+            break;     
+        }    
+    }    
+    public static String palindrome(String s)    
+    {         
+        String rev="";       
+        for(int j=s.length()-1;j>=0;j--)      
+        {            
+            rev+=s.charAt(j);     
+        }        
+        return rev;   
+    }
+}
+
+9.//MagicSquare.java
+import java.util.*;
+class MagicSquare
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        if(n>=3 && n<=7)
+        {
+            int a[][]=new int[n][n];
+            int sum=0;
+            List <Integer> li=new ArrayList<Integer>();
+            for(int i=0;i<n;i++)
+            {
+                for(int j=0;j<n;j++)
+                {
+                    a[i][j]=sc.nextInt();
+                }
+            }
+            for(int i=0;i<n;i++)
+            {
+                sum=0;
+                for(int j=0;j<n;j++)
+                {
+                    sum+=a[i][j];
+                }
+                li.add(sum);
+            }
+            boolean flag=true;;
+            for(int i=0;i<li.size()-1;i++)
+            {
+                if(li.get(i)==li.get(i+1))
+                flag=true;
+                else
+                flag=false;
+            }
+            if(flag)
+            System.out.println("The given matrix of size "+n+" is a magic square and the sum is "+li.get(0)+".");
+            else
+            System.out.println("The given matrix of size "+n+" is not a magic square.");
+        }
+        else
+        System.out.println("The given matrix of size "+n+" is invalid.");
+    }
+}
+
+10.//GreatestCommomDivisor.java
+import java.util.*;
+class GreatestCommomDivisor
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n1=sc.nextInt();
+        int n2=sc.nextInt();
+        System.out.println("GCD of "+n1+" and "+n2+" is "+gcd(n1,n2));
+    }
+    public static int gcd(int a,int b)
+    {
+        while(b!=0)
+        {
+            int r=a%b;
+            a=b;
+            b=r;
+        }
+        return a;
+    }
+}
+
+
+****************************week21*****************************
+
+2.//Anagram.java
+import java.util.*;
+class Anagram
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            String s1=sc.next();
+            String s2=sc.next();
+            if(isAnagram(s1,s2))
+            System.out.println("YES");
+            else
+            System.out.println("NO");
+        }
+    }
+    public static boolean isAnagram(String a, String b)
+    {
+        if(a.length()!=b.length())
+        {
+            return false;
+        }
+        char[] chars=a.toCharArray();
+        for(char c: chars)
+        {
+            int index=b.indexOf(c);
+            if(index!=-1)
+            {
+                b=b.substring(0,index)+b.substring(index+1);
+            }
+            else
+            return false;
+        }
+        return b.isEmpty();
+    }
+}
+
+3.//BinarySearch.java
+import java.util.*;
+class BinarySearch
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        sc.nextLine();
+        String a[]=new String[n];
+        for(int i=0;i<n;i++)
+        a[i]=sc.next();
+        String key=sc.next();
+        int index=-1;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i].equalsIgnoreCase(key))
+            index=i;
+        }
+        if(index==-1)
+        {
+        System.out.println(index);
+        }
+        else if(index==0 && n>1)
+        {
+        System.out.println(index);
+        System.out.println(a[index+1]);
+        }
+        else if(index==0 && n==1)
+        System.out.println(index);
+        else if(index==a.length-1)
+        {
+        System.out.println(index);       
+        System.out.println(a[index-1]);
+        }
+        else
+        {
+        System.out.println(index); 
+        System.out.println(a[index-1]);
+        System.out.println(a[index+1]);
+        }
+    }
+}
+
+4. //Beast.java
+import java.util.*;
+class Beast
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        for(int i=1;i<=t;i++)
+        {
+            int n=sc.nextInt();
+            StringBuffer ans=new StringBuffer();
+            for(int j=0;j<=n/5;j++)
+            {
+                if((n-5*j)%3==0)
+                {
+                    for(int k=0;k<n-5*j;k++)
+                    ans.append("5");
+                    for(int k=0;k<5*j;k++)
+                    ans.append("3");
+                    System.out.println(ans.toString());
+                    break;
+                }
+            }
+            if(ans.toString().equals(""))
+            System.out.println(-1);
+        }
+    }
+}
+
+
+5.//Lychrel.java
+import java.util.*;
+class Lychrel
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        long n=sc.nextInt();
+        long temp=n;
+        boolean flag=true;
+        long value=0;
+        for(int i=1;i<=10;i++)
+        {
+            long rev=reverse(temp);
+            long sum=temp+rev;
+            if(ispalindrome(sum))
+            {
+                System.out.println(i);
+                flag=false;
+                break;
+            }
+            else
+            {
+                temp=sum;
+            }
+            if(i==5)
+            value=temp;
+        }
+        if(flag)
+        {
+            System.out.println(n+" is a Lychrel Number");
+            System.out.println("5th iteration of number "+n+" is "+value);
+        }
+    }
+    public static long reverse(long n)
+    {
+        String s=Long.toString(n);
+        String s1=new StringBuffer(s).reverse().toString();
+        return Long.valueOf(s1);
+    }
+    public static boolean ispalindrome(long n)
+    {
+        String s=Long.toString(n);
+        String s1=new StringBuffer(s).reverse().toString();
+        if(s.equals(s1))
+        return true;
+        else
+        return false;
+    }
+}
+
+
+6.//BinaryStories.java
+import java.util.*;
+class BinaryStories
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n=sc.nextInt();
+        int k=sc.nextInt();
+        String binary=Integer.toString(n,2);  
+        ArrayList al=new ArrayList();     
+        for(int i=0;i+k<=binary.length();i++)
+        {             
+            al.add(binary.substring(i,i+k));     
+        }        
+        String c1="",c0="";       
+        for(int i=0;i<k;i++)
+        {         
+            c1+="1";    
+            c0+="0";      
+        }         
+        int n1= Collections.frequency(al,c1);      
+        int n0= Collections.frequency(al,c0);   
+        System.out.println(n1);      
+        System.out.println(n0);
+    }
+}
+
+
+7.//EncryptionFun.java
+import java.util.*;
+class EncryptionFun
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        int n = sc.nextInt();          
+        if(n>=10)         
+        System.out.print("Array size of "+n+" is Invalid");        
+        else
+        {         
+        sc.nextLine();         
+        String s=sc.nextLine();         
+        List li=new ArrayList();         
+        int len=s.length();         
+        char[] arr=new char[n];        
+        if(len%n!=0)         
+        {             
+            int div=len/n;   
+            div=div+1;            
+            int rem=n*div-len;     
+            for(int i=0;i<rem;i++) 
+            s+=".";           
+            len=s.length();   
+        }         
+        int k=0;   
+        for(int i=0;i<s.length();i++)  
+        {          
+            char ch=s.charAt(i);       
+            if(ch==' ')        
+            arr[k]='*';             
+            else            
+            arr[k]=ch;         
+            k++;             
+            if(k==n)          
+            {                 
+                li.add(String.valueOf(arr));
+                k=0;        
+            }               
+        }          
+        System.out.print(n);     
+        for(int i=0;i<n;i++)        
+        {             
+            for(int j=0;j<li.size();j++)  
+            {                
+                System.out.print(li.get(j).toString().charAt(i));  
+            }        
+        }  
+        }
+    }
+}
+
+
+8.//TagContent.java
+import java.util.*;
+class TagContent
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        int index=0;
+        boolean flag=true;
+        for(;;)
+        {
+            int start=str.indexOf("<",index);
+            if(start<0)
+            break;
+            int end=str.indexOf(">",start);
+            if(end<0)
+            break;
+            String tag=str.substring(start+1,end);
+            if(tag.length()==0 || tag.charAt(0)=='/')
+            {
+                index=end+1;
+                continue;
+            }
+            int back=str.indexOf("</"+tag+">");
+            if(back>=0)
+            {
+                String ans=str.substring(end+1,back);
+                if(ans.length()>0 && ans.indexOf("<")<0)
+                {
+                    flag=false;
+                    System.out.println(ans);
+                }
+            }
+            index=end+1;
+        }
+        if(flag)
+        System.out.print("None");
+    }
+}
+9.//UserName.java
+import java.util.*;
+class UserName
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        if(str.length()>=8 && str.length()<=30)
+        {
+            if(str.contains("_"))
+            System.out.println(str+" is valid");
+            else
+            System.out.println(str+" is invalid");
+        }
+        else
+        System.out.println(str+" is invalid");
+    }
+}
+
+10.//DecryptionFun.java
+import java.util.*;
+class DecryptionFun
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.nextLine();
+        String siz=str.substring(0,1);         
+        String encrypt=str.substring(1,str.length());
+        int n=Integer.valueOf(siz);    
+        int len=0;
+        if(encrypt.length()%n==0)
+        len=encrypt.length()/n;
+        else
+        len=(encrypt.length()/n)+1;
+        String decrypt="";
+        int h=0;
+        while(decrypt.length()!=encrypt.length())
+        {
+            for(int i=h;i<encrypt.length();i+=len)
+            decrypt+=encrypt.charAt(i);
+            h++;
+        }
+        decrypt=decrypt.replace("*"," ");
+        decrypt=decrypt.replace(".","");
+        System.out.print(decrypt);
+    }
+}
+
+9.//UserName.java
+import java.util.*;
+class UserName
+{
+    public static void main(String args[])
+    {
+        Scanner sc=new Scanner(System.in);
+        String str=sc.next();
+        boolean b=str.matches("[a-zA-Z]\\w{7,29}");
+        if(b)
+        System.out.println(str+" is valid");
+        else
+        System.out.println(str+" is invalid");
+    }
+}
+
+
+
+//poker
+import java.util.*;
+class Poker
+{
+    public static void main(String args[])
+    {
+        Scanner in = new Scanner(System.in);
+        List<String> list = new ArrayList<>();
+        List<String> first = new ArrayList<>();
+        List<String> last = new ArrayList<>();
+        List<Integer> intList = new ArrayList<>();
+        String[] seq = {"a", "2", "3", "4", "5", "6", "7", "8", "9", "10", "j", "q", "k"};
+        int s = 0, c = 0, d = 0, h = 0, pos = 0, count = 1;
+        
+        for(int i=0; i<7; i++)
+        {
+            String word = in.next();
+            list.add(word);
+            if((word.charAt(0)+"").equals("1") && (word.charAt(1)+"").equals("0"))
+                first.add("10");
+            else if((word.charAt(0)+"").equals("1"))
+                first.add("a");
+            else
+                first.add((word.charAt(0)+"").toLowerCase());
+            if((word.charAt(1)+"").equals("0"))   
+                last.add((word.charAt(2)+"").toLowerCase());
+            else
+                last.add((word.charAt(1)+"").toLowerCase());
+        }
+        //System.out.println(first);
+        //System.out.println(last);
+        for(int i=0; i<7; i++)
+        {
+            String str = list.get(i);
+            if((str.charAt(0)+"").equals("1") && (str.charAt(1)+"").equals("0"))
+                intList.add(Collections.frequency(first, "10"));
+            else
+            {
+                if((str.charAt(0)+"").equals("1"))
+                    intList.add(Collections.frequency(first, "a"));
+                else
+                    intList.add(Collections.frequency(first, str.charAt(0)+""));
+            }
+                
+        }
+        int rep = Collections.max(intList);
+        //System.out.println(rep);
+        s = Collections.frequency(last, "s");
+        c = Collections.frequency(last, "c");
+        d = Collections.frequency(last, "d");
+        h = Collections.frequency(last, "h");
+ 
+        for(int i=0; i<seq.length; i++)
+        {
+            if(first.contains(seq[i]))
+            {
+                pos = i;
+                break;
+            }
+        }
+        for(int i=pos+1; i<seq.length && count != 5; i++)
+        {
+            if(first.contains(seq[i]))
+                count++;
+            else
+                count = 0;
+        }
+        //System.out.println(count);
+        if(rep == 4)
+            System.out.println("Four of a kind");
+        else if(s>=5 || c>=5 || d>=5 || h>=5)
+            System.out.println("Flush");
+         else if(count >= 5)
+            System.out.println("Straight");
+        else if(rep == 3)
+            System.out.println("Three of a kind");
+        else if(rep == 2)
+            System.out.println("Two Pair");
+        else    
+            System.out.println("No poker hands are presents");
+    }
+}
